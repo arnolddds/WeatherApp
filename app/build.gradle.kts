@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.parcelize)
 }
 
 android {
@@ -60,6 +61,16 @@ dependencies {
 
     implementation(libs.room.core)
     ksp(libs.room.compiler)
+
+    implementation(libs.dagger.core)
+    ksp(libs.dagger.compiler)
+
+    implementation(libs.glide.compose)
+
+    implementation(libs.icons)
+
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.gsonConvertor)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
