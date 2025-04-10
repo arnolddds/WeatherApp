@@ -54,6 +54,9 @@ dependencies {
     implementation(libs.mvikotlin.main)
     implementation(libs.mvikotlin.coroutines)
 
+    implementation(libs.decompose.core)
+    implementation(libs.decompose.jetpack)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

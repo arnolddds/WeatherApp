@@ -9,6 +9,7 @@ lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
 composeBom = "2024.04.01"
 mvikotlin = "3.2.1"
+decompose = "2.1.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +30,9 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 mvikotlin-core = { group = "com.arkivanov.mvikotlin", name = "mvikotlin",  version.ref = "mvikotlin" }
 mvikotlin-main = { group = "com.arkivanov.mvikotlin", name = "mvikotlin-main",  version.ref = "mvikotlin" }
 mvikotlin-coroutines = { group = "com.arkivanov.mvikotlin", name = "mvikotlin-extensions-coroutines",  version.ref = "mvikotlin" }
+#decompose
+decompose-core = { group = "com.arkivanov.decompose", name = "decompose",  version.ref = "decompose" }
+decompose-jetpack = { group = "com.arkivanov.decompose", name = "extensions-compose",  version.ref = "decompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
