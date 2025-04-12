@@ -1,3 +1,5 @@
+import com.android.build.api.variant.BuildConfigField
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -6,9 +8,23 @@ plugins {
     alias(libs.plugins.parcelize)
 }
 
+androidComponents {
+    val key = property("apikey")?.toString() ?: error(
+        "You should add apikey into gradle.properties"
+    )
+
+    onVariants { variant ->
+        variant.buildConfigFields.put(
+            "WEATHER_API_KEY",
+            BuildConfigField("String", "\"$key\"", "API key for accessing the sevice")
+        )
+    }
+}
+
 android {
     namespace = "com.example.weatherapp"
     compileSdk = 35
+
 
     defaultConfig {
         applicationId = "com.example.weatherapp"
@@ -38,6 +54,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
