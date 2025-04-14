@@ -1,11 +1,13 @@
 package com.example.weatherapp.data.local.db
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.weatherapp.data.local.model.CityDbModel
 import kotlinx.coroutines.flow.Flow
 
+@Dao
 interface FavouriteCitiesDao {
 
     @Query("SELECT * FROM favourite_cities")
