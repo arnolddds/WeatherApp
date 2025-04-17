@@ -6,18 +6,20 @@ import com.arkivanov.mvikotlin.extensions.coroutines.labels
 import com.arkivanov.mvikotlin.extensions.coroutines.stateFlow
 import com.example.weatherapp.domain.entity.City
 import com.example.weatherapp.presentation.extensions.componentScope
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-class DefaultSearchComponent @Inject constructor(
+class DefaultSearchComponent @AssistedInject constructor(
     private val storeFactory: SearchStoreFactory,
-    private val openReason: OpenReason,
-    private val onBackClick: () -> Unit,
-    private val onCitySavedToFavouriteClicked: () -> Unit,
-    private val onForecastForCityRequested: (City) -> Unit,
-    componentContext: ComponentContext
+    @Assisted("openReason") private val openReason: OpenReason,
+    @Assisted("onBackClick") private val onBackClick: () -> Unit,
+    @Assisted("onCitySavedToFavouriteClicked") private val onCitySavedToFavouriteClicked: () -> Unit,
+    @Assisted("onForecastForCityRequested") private val onForecastForCityRequested: (City) -> Unit,
+    @Assisted("componentContext") componentContext: ComponentContext
 ) : SearchComponent, ComponentContext by componentContext {
 
     private val store = instanceKeeper.getStore { storeFactory.create(openReason) }
@@ -61,5 +63,16 @@ class DefaultSearchComponent @Inject constructor(
     override fun onClickCity(city: City) {
         store.accept(SearchStore.Intent.ClickCity(city))
 
+    }
+
+    @AssistedFactory
+    interface Factory {
+        fun create(
+            @Assisted("openReason") openReason: OpenReason,
+            @Assisted("onBackClick") onBackClick: () -> Unit,
+            @Assisted("onCitySavedToFavouriteClicked") onCitySavedToFavouriteClicked: () -> Unit,
+            @Assisted("onForecastForCityRequested") onForecastForCityRequested: (City) -> Unit,
+            @Assisted("componentContext") componentContext: ComponentContext
+        ): DefaultSearchComponent
     }
 }
