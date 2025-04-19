@@ -1,5 +1,6 @@
 package com.example.weatherapp.presentation.favourite
 
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -22,6 +23,7 @@ import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Error
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -48,6 +50,7 @@ import com.example.weatherapp.presentation.extensions.tempToFormattedString
 import com.example.weatherapp.presentation.ui.theme.CardGradients
 import com.example.weatherapp.presentation.ui.theme.Gradient
 import com.example.weatherapp.presentation.ui.theme.Orange
+
 
 @Composable
 fun FavouriteContent(component: FavouriteComponent) {
@@ -224,7 +227,7 @@ private fun SearchCard(
             Text(
                 text = stringResource(R.string.search),
                 color = MaterialTheme.colorScheme.background,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(end = 16.dp)
             )
         }
     }
