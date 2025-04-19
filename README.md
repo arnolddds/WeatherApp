@@ -11,9 +11,9 @@
 ## 📱 Демонстрация
 
 <div align="center">
-  <img src="screenshots/main_screen.png" width="32%" alt="Избранные города">
-  <img src="screenshots/detail_screen.png" width="32%" alt="Детальный экран погоды">
-  <img src="screenshots/search_screen.png" width="32%" alt="Экран поиска">
+  <img src="screenshots/main.png" width="32%" alt="Избранные города">
+  <img src="screenshots/detail.png" width="32%" alt="Детальный экран погоды">
+  <img src="screenshots/search.png" width="32%" alt="Экран поиска">
 </div>
 
 ---
